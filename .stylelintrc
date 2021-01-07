@@ -1,0 +1,12 @@
+{
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-prettier"
+  ],
+  "rules": {
+    "block-no-empty": null,
+    "value-keyword-case": null,
+    "value-no-vendor-prefix": [true, { "ignoreValues": ["box"] }],
+    "property-no-vendor-prefix": [true, { "ignoreProperties": ["box-orient", "appearance"] }]
+  }
+}
