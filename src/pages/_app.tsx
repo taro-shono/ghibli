@@ -1,4 +1,4 @@
-import '../../src/styles/styles.css';
+import '../styles/styles.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { Meta } from '../components/Meta';
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: Props) {
   return (
     <ThemeProvider
       forcedTheme={Component.theme || undefined}
-      defaultTheme="system"
+      defaultTheme="dark"
       attribute="class"
     >
       <Meta />

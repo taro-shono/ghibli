@@ -10,7 +10,7 @@ type Props = {
   length: number;
 };
 
-export const imageListContainerClassName = `pb-${SPACE} px-${SPACE} grid gap-${SPACE} lg:grid-cols-3 2xl:grid-cols-6`;
+export const imageListContainerClassName = `${SPACE.PADDING_B} ${SPACE.PADDING_X} grid ${SPACE.GAP} lg:grid-cols-3 2xl:grid-cols-6`;
 
 export const ImageList: FC<Props> = ({ length, name, ...other }) => {
   const images = Array.from(Array(length)).map((_, index) => ({

@@ -7,7 +7,7 @@ type Props = {};
 const Layout: FC<Props> = ({ children }) => {
   return (
     <div>
-      <Nav className={`fixed w-32 pt-${SPACE} pl-${SPACE}`} />
+      <Nav className={`fixed w-32 ${SPACE.PADDING_T} ${SPACE.PADDING_L}`} />
       <main className="flex-1 pl-32">{children}</main>
     </div>
   );
