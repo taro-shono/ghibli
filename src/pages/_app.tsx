@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: Props) {
   return (
     <ThemeProvider
       forcedTheme={Component.theme || undefined}
-      defaultTheme="system"
+      defaultTheme="dark"
       attribute="class"
     >
       <Meta />
