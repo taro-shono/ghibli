@@ -1,4 +1,4 @@
-import '../../src/styles/styles.css';
+import '../styles/styles.css';
 import type { AppProps } from 'next/app';
 import { ThemeProvider } from 'next-themes';
 import { Meta } from '../components/Meta';

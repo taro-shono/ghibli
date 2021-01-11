@@ -10,7 +10,7 @@ type Props = {
 
 export const ImageDetail: FC<Props> = ({ id, title, ...other }) => {
   return (
-    <div className={`p-${SPACE}`} {...other}>
+    <div className={`${SPACE.PADDING}`} {...other}>
       <figure className="bg-gray-100 dark:bg-gray-900">
         <Image
           src={`/images/${title}/${title}${zeroPadding(Number(id))}.jpg`}
