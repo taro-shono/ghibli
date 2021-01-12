@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
-import { SPACE } from '../../constants';
+import { SPACE, TITLE } from '../../constants';
 import { zeroPadding } from '../../utils';
 import { Image } from '../Image/Image';
 import styles from './ImageList.module.css';
@@ -15,7 +15,7 @@ export const imageListContainerClassName = `${SPACE.PADDING_B} ${SPACE.PADDING_X
 export const ImageList: FC<Props> = ({ length, name, ...other }) => {
   const images = Array.from(Array(length)).map((_, index) => ({
     id: index + 1,
-    src: `/images/${name}/${name}${zeroPadding(index + 1)}.jpg`,
+    src: `/images/${name}/${name}${zeroPadding(index + 1)}.webp`,
   }));
 
   return (
@@ -27,13 +27,13 @@ export const ImageList: FC<Props> = ({ length, name, ...other }) => {
           {...other}
         >
           <Link href={`/${name}/${item.id}`}>
-            <a>
+            <a aria-label={`ghibli's ${TITLE[name]} pictures`}>
               <Image
                 className="rounded-lg"
                 src={item.src}
                 layout="fill"
                 objectFit="cover"
-                quality={100}
+                quality={75}
                 alt=""
               />
             </a>

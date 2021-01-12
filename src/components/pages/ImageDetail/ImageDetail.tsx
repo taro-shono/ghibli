@@ -13,7 +13,7 @@ export const ImageDetail: FC<Props> = ({ id, title, ...other }) => {
     <div className={`${SPACE.PADDING}`} {...other}>
       <figure className="bg-gray-100 dark:bg-gray-900">
         <Image
-          src={`/images/${title}/${title}${zeroPadding(Number(id))}.jpg`}
+          src={`/images/${title}/${title}${zeroPadding(Number(id))}.webp`}
           layout="responsive"
           width="1920"
           height="1038"
