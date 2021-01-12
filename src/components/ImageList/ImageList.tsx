@@ -15,7 +15,7 @@ export const imageListContainerClassName = `${SPACE.PADDING_B} ${SPACE.PADDING_X
 export const ImageList: FC<Props> = ({ length, name, ...other }) => {
   const images = Array.from(Array(length)).map((_, index) => ({
     id: index + 1,
-    src: `/images/${name}/${name}${zeroPadding(index + 1)}.jpg`,
+    src: `/images/${name}/${name}${zeroPadding(index + 1)}.webp`,
   }));
 
   return (
@@ -33,7 +33,7 @@ export const ImageList: FC<Props> = ({ length, name, ...other }) => {
                 src={item.src}
                 layout="fill"
                 objectFit="cover"
-                quality={100}
+                quality={75}
                 alt=""
               />
             </a>
