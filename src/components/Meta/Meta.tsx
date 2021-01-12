@@ -9,8 +9,8 @@ interface Props {
 
 export const Meta: React.FC<Props> = (props) => {
   const {
-    title = 'unofficial ghibli photo',
-    description = '',
+    title = 'unofficial ghibli gallery',
+    description = 'ghibli pictures gallery',
     ogpImageUrl = '',
   } = props;
 
@@ -22,8 +22,7 @@ export const Meta: React.FC<Props> = (props) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogpImageUrl} />
-      {/* TODO: add project url */}
-      {/* <meta property="og:url" content="" /> */}
+      <meta property="og:url" content="https://ghibli.vercel.app/" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogpImageUrl} />
