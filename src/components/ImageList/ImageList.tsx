@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { FC } from 'react';
-import { SPACE } from '../../constants';
+import { SPACE, TITLE } from '../../constants';
 import { zeroPadding } from '../../utils';
 import { Image } from '../Image/Image';
 import styles from './ImageList.module.css';
@@ -27,7 +27,7 @@ export const ImageList: FC<Props> = ({ length, name, ...other }) => {
           {...other}
         >
           <Link href={`/${name}/${item.id}`}>
-            <a>
+            <a aria-label={`ghibli's ${TITLE[name]} pictures`}>
               <Image
                 className="rounded-lg"
                 src={item.src}
