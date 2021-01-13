@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 interface Props {
   title?: string;
@@ -13,6 +14,8 @@ export const Meta: React.FC<Props> = (props) => {
     description = 'ghibli pictures gallery',
     ogpImageUrl = '',
   } = props;
+  const { locale } = useRouter();
+  const url = `https://ghibli.vercel.app${locale === 'en' ? '' : `/${locale}`}`;
 
   return (
     <Head>
@@ -22,11 +25,12 @@ export const Meta: React.FC<Props> = (props) => {
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogpImageUrl} />
-      <meta property="og:url" content="https://ghibli.vercel.app/" />
+      <meta property="og:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={ogpImageUrl} />
       <meta name="twitter:card" content="summary_large_image" />
+      <link rel="alternate" href={url} hrefLang={locale} />
     </Head>
   );
 };
