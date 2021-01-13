@@ -7,18 +7,30 @@ import { Title } from '../components/pages/Title';
 type Props = {
   title: string;
 };
+type Paths = {
+  locale: string;
+  params: {
+    slug: string;
+  };
+};
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+  if (!locales) return { paths: [], fallback: false };
+  const paths = locales.reduce(
+    (prev, current) => [
+      ...prev,
+      ...nav.map((item) => ({
+        params: {
+          slug: item.name,
+        },
+        locale: current,
+      })),
+    ],
+    [] as Paths[],
+  );
+
   return {
-    paths: nav
-      .filter((item) => item.path !== '/')
-      .map((item) => {
-        return {
-          params: {
-            slug: item.name,
-          },
-        };
-      }),
+    paths,
     fallback: false,
   };
 };
