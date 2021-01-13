@@ -5,6 +5,7 @@ const config = {
   i18n: {
     locales: ['en', 'ja'],
     defaultLocale: 'en',
+    localeDetection: false,
   },
 };
 
