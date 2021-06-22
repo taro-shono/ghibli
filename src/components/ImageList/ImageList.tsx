@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { SPACE, TITLE } from '../../constants';
 import { zeroPadding } from '../../utils';
-import { Image } from '../Image/Image';
+import { Image, StaticRequire } from '../Image/Image';
 import styles from './ImageList.module.css';
 
 type Props = {
@@ -13,10 +13,28 @@ type Props = {
 export const imageListContainerClassName = `${SPACE.PADDING_B} ${SPACE.PADDING_X} grid ${SPACE.GAP} lg:grid-cols-3 2xl:grid-cols-6`;
 
 export const ImageList: FC<Props> = ({ length, name, ...other }) => {
-  const images = Array.from(Array(length)).map((_, index) => ({
-    id: index + 1,
-    src: `/images/${name}/${name}${zeroPadding(index + 1)}.webp`,
-  }));
+  const [images, setImages] = useState<
+    { id: number; src: StaticRequire }[] | null
+  >(null);
+  useEffect(() => {
+    const set = async () => {
+      const list = await Promise.all(
+        Array.from(Array(length)).map(async (_, index) => {
+          const item = (await import(
+            `/public/images/${name}/${name}${zeroPadding(index + 1)}.jpg`
+          )) as StaticRequire;
+          return {
+            id: index + 1,
+            src: item,
+          };
+        }),
+      );
+      setImages(list);
+    };
+    set();
+  }, [name]);
+
+  if (!images) return null;
 
   return (
     <>
@@ -33,6 +51,7 @@ export const ImageList: FC<Props> = ({ length, name, ...other }) => {
                 src={item.src}
                 layout="fill"
                 objectFit="cover"
+                placeholder="blur"
                 quality={75}
                 alt=""
               />
