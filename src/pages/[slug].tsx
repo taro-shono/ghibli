@@ -31,7 +31,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
   return {
     paths,
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
@@ -44,6 +44,7 @@ export const getStaticProps: GetStaticProps = async ({
     props: {
       title: slug,
     },
+    revalidate: 60,
   };
 };
 

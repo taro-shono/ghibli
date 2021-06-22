@@ -32,7 +32,7 @@ export const getStaticProps: GetStaticProps = async ({
       id,
       title: slug,
     },
-    revalidate: 1,
+    revalidate: 60,
   };
 };
 
