@@ -11,7 +11,7 @@ type Props = {
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     paths: [],
-    fallback: true,
+    fallback: 'blocking',
   };
 };
 
@@ -32,6 +32,7 @@ export const getStaticProps: GetStaticProps = async ({
       id,
       title: slug,
     },
+    revalidate: 1,
   };
 };
 
