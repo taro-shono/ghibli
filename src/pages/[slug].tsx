@@ -15,7 +15,7 @@ type Paths = {
 };
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
-  if (!locales) return { paths: [], fallback: false };
+  if (!locales) return { paths: [], fallback: 'blocking' };
   const paths = locales.reduce(
     (prev, current) => [
       ...prev,
