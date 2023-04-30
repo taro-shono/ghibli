@@ -22,7 +22,7 @@
     "tailwindcss": "2.2.4"
   },
   "devDependencies": {
-    "@storybook/react": "6.3.4",
+    "@storybook/react": "6.5.16",
     "@types/react": "17.0.14",
     "@types/react-dom": "17.0.9",
     "@typescript-eslint/eslint-plugin": "4.28.4",
